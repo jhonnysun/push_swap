@@ -71,7 +71,7 @@ t_stack *fill_a(int *array, int len, t_stack *a)
     {
 		tmp = malloc(sizeof(t_stack));
 		tmp->content = array[i++];
-		ft_lstadd_back(tmp, a);
+		ft_lstadd_back(&a, tmp);
 		if (i == len)
 		{
 			a->next = NULL;

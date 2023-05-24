@@ -44,16 +44,17 @@ int main(int ac, char **av)
 	if (check_edge(av, stacklen))
 		return (1);
 	tosort = create(ac, av);
-    a = fill_a(tosort, stacklen, a);    
-    sorted = to_sort(tosort, ac);
-    set_index(&a, sorted, stacklen);
-	//print_array(sorted, ac);
+	print_array(sorted, ac);
+    a = fill_a(tosort, stacklen, a); 
+	
+    //sorted = to_sort(tosort, ac);
+    //set_index(&a, sorted, stacklen);
 	//pa_pb(&a, &b, 2);
 	//pa_pb(&a, &b, 2);
     print_list(a);
 	
 	write(1, "\n\n", 2);
-	/*
+	
 	chuncksize = set_chuncksize(stacklen);
 	if (stacklen == 2)
 	{
@@ -68,6 +69,6 @@ int main(int ac, char **av)
 		sort_five(&a, &b);
 	else
 		radix_sort(a, b, stacklen);
-    print_list(a);*/
+    print_list(a);
     return (0);
 }
