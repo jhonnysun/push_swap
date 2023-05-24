@@ -49,6 +49,8 @@ int	ft_lstsize(t_stack *lst)
 
 void	ft_lstadd_back(t_stack **list, t_stack *new)
 {
+	if (new == NULL)
+		(*list)->next = new;
 	if (!new || !list)
 		return ;
 	if (ft_lstsize(*list) == 0)
@@ -65,19 +67,22 @@ t_stack *fill_a(int *array, int len, t_stack *a)
     i = 0;
 	printf("LEN = %i\n", len);
 	tmp = malloc(sizeof(t_stack));
+	tmp->index = 0;
 	tmp->content = array[i++];
-	a = tmp;
+	ft_lstadd_back(&a, tmp);	
     while (i < len)
     {
+		printf("i = %i\n", i);
+		tmp = tmp->next;
 		tmp = malloc(sizeof(t_stack));
+		tmp->index = 0;
 		tmp->content = array[i++];
 		ft_lstadd_back(&a, tmp);
-		if (i == len)
+		if (i == len + 1)
 		{
-			a->next = NULL;
+			ft_lstadd_back(&a, NULL);
 			break ;
 		}
-		a = a->next;
     }
     return (a);
 }

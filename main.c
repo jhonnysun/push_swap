@@ -22,7 +22,7 @@ static int	check_edge(char **av, int len)
 	}
 	if (not_sorted(av, (len)))
 	{
-		write(1, "1\n", 2);
+		write(1, "\n", 2);
 		return (0);
 	}
 	return (0);
@@ -36,7 +36,7 @@ int main(int ac, char **av)
 	t_stack *b;
 	int	chuncksize;
 	
-    a = malloc(sizeof(t_stack));
+    //a = malloc(sizeof(t_stack));
 	//b->next = NULL;
 	b = NULL;
     stacklen = (ac - 1);
