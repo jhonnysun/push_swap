@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
+#include <string.h>
 
 static int	check_edge(char **av, int len)
 {
@@ -35,7 +36,7 @@ int main(int ac, char **av)
 	t_stack *b;
 	int	chuncksize;
 	
-    //a = malloc(sizeof(t_stack));
+    a = malloc(sizeof(t_stack));
 	//b->next = NULL;
 	b = NULL;
     stacklen = (ac - 1);
