@@ -53,7 +53,7 @@ int main(int ac, char **av)
     print_list(a);
 	
 	write(1, "\n\n", 2);
-	
+	/*
 	chuncksize = set_chuncksize(stacklen);
 	if (stacklen == 2)
 	{
@@ -68,6 +68,6 @@ int main(int ac, char **av)
 		sort_five(&a, &b);
 	else
 		radix_sort(a, b, stacklen);
-    print_list(a);
+    print_list(a);*/
     return (0);
 }

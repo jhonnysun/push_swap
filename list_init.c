@@ -62,13 +62,16 @@ t_stack *fill_a(int *array, int len, t_stack *a)
     int     i;
     t_stack *tmp;
     
-    tmp = NULL;
     i = 0;
 	printf("LEN = %i\n", len);
+	tmp = malloc(sizeof(t_stack));
+	tmp->content = array[i++];
+	a = tmp;
     while (i < len)
     {
-		a->next = malloc(sizeof(t_stack));
-		a->content = array[i++];
+		tmp = malloc(sizeof(t_stack));
+		tmp->content = array[i++];
+		ft_lstadd_back(tmp, a);
 		if (i == len)
 		{
 			a->next = NULL;
