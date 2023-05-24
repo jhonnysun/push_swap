@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/24 22:12:26 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:18:19 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 void    sub_three(t_stack **stack, int *n)
 {
-    t_stack **tmp;
+    t_stack *tmp;
     
-    *tmp = NULL;
+    printf("inside\n");
+    tmp = NULL;
+    printf("OUTside\n");
     //321, 132
     if (n[0] > n[1] && n[1] > n[2])
     {
-        sa_sb(stack, tmp, 1, 1);
-        rra_rrb(stack, tmp, 1, 1);         
+        sa_sb(stack, &tmp, 1, 1);
+        rra_rrb(stack, &tmp, 1, 1);         
     }
     else if (n[0] < n[1] && n[1] > n[2] && n[0] < n[2])
     {
-        sa_sb(stack, tmp, 1, 1);
-        ra_rb(stack, tmp, 1, 1);
+        sa_sb(stack, &tmp, 1, 1);
+        ra_rb(stack, &tmp, 1, 1);
     }   
 }
 
