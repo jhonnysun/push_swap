@@ -50,7 +50,10 @@ int	ft_lstsize(t_stack *lst)
 void	ft_lstadd_back(t_stack **list, t_stack *new)
 {
 	if (new == NULL)
+	{
+		(*list)->next = malloc(sizeof(t_stack));
 		(*list)->next = new;
+	}
 	if (!new || !list)
 		return ;
 	if (ft_lstsize(*list) == 0)
