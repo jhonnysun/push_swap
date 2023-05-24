@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/24 22:18:19 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:24:35 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    sub_three(t_stack **stack, int *n)
     t_stack *tmp;
     
     printf("inside\n");
-    tmp = NULL;
+    tmp = malloc(sizeof(t_stack));
     printf("OUTside\n");
     //321, 132
     if (n[0] > n[1] && n[1] > n[2])

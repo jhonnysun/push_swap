@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:30:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/24 22:16:06 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:26:05 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,16 @@ void    sa_sb(t_stack **a, t_stack **b, int mod, int flag)
     t_stack *tmp;
     t_stack **c;
     
+    printf("1111\n");
+    *c = NULL;
     if (mod == 1)
         c = a;
     else if (mod == 2)
         c = b;
-    if ((*c || (*c)->next != NULL) && mod < 3)
+    //printf("222222\n");
+    if (mod < 3 && *c && (*c)->next != NULL)
     {
+        printf("inside\n");
         tmp = (*c)->next;
         (*c)->next = tmp->next;
         tmp->next = *c;

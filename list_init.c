@@ -64,12 +64,17 @@ t_stack *fill_a(int *array, int len, t_stack *a)
     
     tmp = NULL;
     i = 0;
+	printf("LEN = %i\n", len);
     while (i < len)
     {
         tmp = ft_lstnew(array[i]);
         ft_lstadd_back(&a, tmp);
         i++;
+		if (i == len)
+		{
+			tmp->next = NULL;
+			break ;
+		}
     }
-	tmp->next = NULL;
     return (a);
 }

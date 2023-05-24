@@ -35,7 +35,7 @@ int main(int ac, char **av)
 	t_stack *b;
 	int	chuncksize;
 	
-   // b = malloc(sizeof(t_stack));
+    //a = malloc(sizeof(t_stack));
 	//b->next = NULL;
 	b = NULL;
     stacklen = (ac - 1);
