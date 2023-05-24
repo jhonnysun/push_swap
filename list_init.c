@@ -39,6 +39,8 @@ int	ft_lstsize(t_stack *lst)
 	int	i;
 
 	i = 0;
+	if (lst == NULL)
+		return (NULL);
 	while (lst)
 	{
 		lst = lst->next;
