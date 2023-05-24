@@ -12,8 +12,6 @@
 
 #include "pushswap.h"
 
-
-
 int *create(int ac, char **av)
 {
     int *filled;

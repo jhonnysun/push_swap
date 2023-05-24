@@ -50,7 +50,7 @@ t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 int	ft_lstsize(t_stack *lst);
 void	ft_lstadd_back(t_stack **list, t_stack *new);
-t_stack *fill_a(int *array, int len, t_stack *a);
+t_stack *fill_a(int *array, int len);
 
 //create_array.c
 int *create(int ac, char **av);

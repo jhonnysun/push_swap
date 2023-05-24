@@ -40,7 +40,7 @@ int	ft_lstsize(t_stack *lst)
 
 	i = 0;
 	if (lst == NULL)
-		return (NULL);
+		return (0);
 	while (lst)
 	{
 		lst = lst->next;
@@ -51,43 +51,37 @@ int	ft_lstsize(t_stack *lst)
 
 void	ft_lstadd_back(t_stack **list, t_stack *new)
 {
-	if (new == NULL)
-	{
-		(*list)->next = malloc(sizeof(t_stack));
-		(*list)->next = new;
-	}
-	if (!new || !list)
+	if (!new)
 		return ;
-	if (ft_lstsize(*list) == 0)
+	if (!(*list) || ft_lstsize(*list) == 0)
 		*list = new;
 	else
 		ft_lstlast(*list)->next = new;
 }
 
-t_stack *fill_a(int *array, int len, t_stack *a)
+t_stack *fill_a(int *array, int len)
 {
     int     i;
     t_stack *tmp;
+    t_stack *rtn;
+
     
     i = 0;
+	rtn = NULL;
 	printf("LEN = %i\n", len);
-	tmp = malloc(sizeof(t_stack));
-	tmp->index = 0;
-	tmp->content = array[i++];
-	ft_lstadd_back(&a, tmp);	
+	tmp = ft_lstnew(array[i++]);
+	ft_lstadd_back(&rtn, tmp);	
+	printf("ERROR\n");
     while (i < len)
     {
 		printf("i = %i\n", i);
-		tmp = tmp->next;
-		tmp = malloc(sizeof(t_stack));
-		tmp->index = 0;
-		tmp->content = array[i++];
-		ft_lstadd_back(&a, tmp);
+		tmp = ft_lstnew(array[i++]);
+		ft_lstadd_back(&rtn, tmp);
 		if (i == len + 1)
 		{
-			ft_lstadd_back(&a, NULL);
+			ft_lstadd_back(&rtn, NULL);
 			break ;
 		}
     }
-    return (a);
+    return (rtn);
 }
