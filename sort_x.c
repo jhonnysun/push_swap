@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/24 21:31:11 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:12:26 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    sub_three(t_stack **stack, int *n)
 {
     t_stack **tmp;
     
-    tmp = NULL;
+    *tmp = NULL;
     //321, 132
     if (n[0] > n[1] && n[1] > n[2])
     {
