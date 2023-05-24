@@ -44,7 +44,7 @@ int main(int ac, char **av)
 	if (check_edge(av, stacklen))
 		return (1);
 	tosort = create(ac, av);
-	print_array(sorted, ac);
+	print_array(tosort, ac);
     a = fill_a(tosort, stacklen, a); 
 	
     //sorted = to_sort(tosort, ac);

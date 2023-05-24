@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debugprints.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:09:24 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/20 19:38:08 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 23:19:02 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_array(int *array, int ac)
 	int	i;
 
 	i = 0;
-	while (i <= (ac - 2))
+	while (i < (ac - 1))
 	{
         printf("array_index = %i   array_Content = %i\n", i, array[i]);
 		i++;

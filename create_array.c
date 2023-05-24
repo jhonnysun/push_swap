@@ -22,7 +22,7 @@ int *create(int ac, char **av)
 
     j = 1;
     i = 0;
-    filled = malloc(sizeof(int) * ac);
+    filled = malloc(sizeof(int) * (ac - 1));
     while (j <= (ac - 1))
     {
         filled[i] = atoi(av[j]);
