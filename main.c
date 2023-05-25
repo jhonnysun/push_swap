@@ -68,7 +68,7 @@ int main(int ac, char **av)
 	else if (stacklen == 5)
 		sort_five(&a, &b);
 	else
-		radix_sort(a, b, stacklen);
+		radix_sort(&a, &b, stacklen);
     //printf("hallo hier ist a\n");
 	//print_list(a);
     //printf("hallo hier ist b\n");

@@ -14,12 +14,17 @@
 
 int set_chuncksize(int elements)
 {
-    int chuncksize;
+    static int  started;
 
-    if (elements <= 100)
+    if (started != 0)
+        return (started);
+    int chuncksize;
+    chuncksize = 5;
+    if (elements <= 100 && elements > 12)
         chuncksize = elements / 5 - 2;
-    else
+    else if (elements > 100)
         chuncksize = elements / 10 - 2;
+    started = chuncksize;
     return (chuncksize);
 }
 
