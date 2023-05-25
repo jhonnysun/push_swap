@@ -16,22 +16,14 @@ int set_chuncksize(int elements)
 {
     int chuncksize;
 
-    printf("elements : %i\n", elements);
-    if (elements <= 50)
-        chuncksize = elements / 2;
-    else if (elements <= 100)
-        chuncksize = elements / 5;
-    else if (elements >= 101 && elements <= 200)
-        chuncksize = elements / 8;
-    else if (elements >= 201 && elements <= 300)
-        chuncksize = elements / 10;
-    else if (elements >= 301 && elements <= 400)
-        chuncksize = elements / 15;
-    else if (elements >= 401 && elements <= 500)
-        chuncksize = elements / 20;
-    printf("chuncksize : %i\n", chuncksize);
+    if (elements <= 100)
+        chuncksize = elements / 5 - 2;
+    else
+        chuncksize = elements / 10 - 2;
     return (chuncksize);
 }
+
+
 /*
 int chunck_next(int chunksize, int max_elements)
 {

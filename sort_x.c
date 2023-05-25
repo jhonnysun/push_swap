@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 21:41:11 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 23:18:49 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,67 @@ void    sort_five(t_stack **a, t_stack **b)
 	pb_pa(a, b, 2);
 
     sort_three(a);
-    pb_pa(a, b, 2);
+    pb_pa(b, a, 1);
+    pb_pa(b, a, 1);
+
+}
+
+//mod 1 = a / mod 2 = b
+void    n_rotations(t_stack **stack,int mod, int rounds)
+{
+    while (rounds > 0)
+    {
+        ft_rb(stack, 1);
+        rounds--;
+    }
+    
+}
+
+static void push_back(t_stack **a, t_stack **b, int i, int max)
+{
+    int rounds;
+    
+    while (*b)
+    {
+        while (i > 0 && i >= max)
+        {
+            rounds = find_index(b, i);
+            n_rotations(b, a, rounds);
+            pb_pa(b, a, 1);
+            i--;
+        }
+        max -= 5;
+    }
 }
 
 void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 {
-    
+    int i;
+    int max;
+    int size;
+
+    i = 1;
+    max = 0;
+    while (*a)
+    {
+        max += set_chuncksize(stacklen);
+        while (i <= max)
+        {
+            if (*a == NULL)
+                break ;
+            if ((*a)->index <= max)
+            {
+                pb_pa(a, b, 2);
+                i++;
+            }
+            else
+            {
+                //optimierung decide direction
+                ft_ra(a, 1);
+                
+            }   
+        }
+        a = (*a)->next;   
+    }
+    push_back(a, b, i, max);
 }
