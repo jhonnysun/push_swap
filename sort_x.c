@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 01:02:37 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:03:31 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void    sub_three(t_stack **stack, int *n)
     //321, 132
     if (n[0] > n[1] && n[1] > n[2])
     {
-        sa_sb(stack, &tmp, 1, 1);
-        rra_rrb(stack, &tmp, 1, 1);         
+        ft_sa(stack, 1);
+        reverse_rra(stack, 1);         
     }
     else if (n[0] < n[1] && n[1] > n[2] && n[0] < n[2])
     {
-        sa_sb(stack, &tmp, 1, 1);
-        ra_rb(stack, &tmp, 1, 1);
+        ft_sa(stack, 1);
+        ft_ra(stack, 1);
     }   
 }
 
@@ -48,11 +48,11 @@ void    sort_three(t_stack **stack)
     }
     //312, 213, 231 
     if (n[0] > n[1] && n[1] < n[2] && n[0] > n[2])
-        ra_rb(stack, &tmp, 1, 1);       
+        ft_ra(stack, 1);       
     else if (n[0] > n[1] && n[1] < n[2] && n[0] < n[2])
-        sa_sb(stack, &tmp, 1, 1);
+        ft_sa(stack, 1);
     else if (n[0] < n[1] && n[1] > n[2] && n[0] > n[2])
-        rra_rrb(stack, &tmp, 1, 1);
+        reverse_rra(stack, 1);
     else
         sub_three(stack, n); 
 }
@@ -61,7 +61,7 @@ void    sort_four(t_stack **a, t_stack **b)
 {
     push_min(a, b);
     sort_three(a);
-    pa_pb(a, b, 2);
+    pb_pa(a, b, 2);
 }
 
 void    sort_five(t_stack **a, t_stack **b)
@@ -69,7 +69,7 @@ void    sort_five(t_stack **a, t_stack **b)
     push_min(a, b);
     push_min(a, b);
     sort_three(a);
-    pa_pb(a, b, 2);
+    pb_pa(a, b, 2);
 }
 
 void    radix_sort(t_stack **a, t_stack **b, int stacklen)

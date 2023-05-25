@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:47:41 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/20 17:47:41 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/25 16:07:40 by jlaisney          #+#    #+#             */
+/*   Updated: 2023/05/25 16:07:40 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	push_min_sub(t_stack **a, t_stack **b, int pos)
 		{
 			while (pos != 0)
 			{
-				rra_rrb(a, b, 1, 1);
+				reverse_rra(a, 1);
 				pos--;
 			}
 		}
@@ -62,12 +62,12 @@ void	push_min_sub(t_stack **a, t_stack **b, int pos)
 		{	
 			while (pos != 0)
 			{
-				ra_rb(a, b, 1, 1);
+				ft_ra(a, 1);
 				pos--;
 			}
 		}
 	}
-	pa_pb(a, b, 2);
+	pb_pa(a, b, 2);
 }
 
 void	push_min(t_stack **a, t_stack **b)

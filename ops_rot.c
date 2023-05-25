@@ -3,32 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:30:01 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/21 10:35:08 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/25 15:11:14 by jlaisney          #+#    #+#             */
+/*   Updated: 2023/05/25 16:06:55 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_stack *find_forelast(t_stack **stack)
-{
-    t_stack **tmp;
-    
-    tmp = stack;
-    if ((*tmp)->next == NULL)
-        return (*tmp);
-    while ((*tmp)->next != NULL)
-    {
-        if ((*tmp)->next->next == NULL)
-            return (*tmp);
-        *tmp = (*tmp)->next;
-    }
-    return (*tmp);
-}
-
-static void	ft_lstadd_front(t_stack **lst, t_stack *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (lst && new)
 	{
@@ -37,119 +21,98 @@ static void	ft_lstadd_front(t_stack **lst, t_stack *new)
 	}
 }
 
-static void ra_rb_printer(int mod, int flag)
+void    ft_ra(t_stack **a, int print)
 {
-    if (flag)
-        return ;  
-    if (mod == 1)
-        write(1, "ra\n", 3);
-    if (mod == 2)
-        write(1, "rb\n", 3); 
-}
-
-
-static void rra_rrb_printer(int mod, int flag)
-{
-    if (flag)
-        return ;  
-    if (mod == 1)
-        write(1, "rra\n", 3);
-    if (mod == 2)
-        write(1, "rrb\n", 3); 
-}
-
-void    ra_rb(t_stack **a, t_stack **b, int mod, int flag)
-{    
     t_stack *tmp;
-    t_stack **c;
     
-    if (mod == 1)
-        c = a;
-    else if (mod == 2)
-        c = b;
-    if (mod < 3)
-    {
-        if ((*c)->next == NULL)
+    if ((*a)->next == NULL)
             return ;
-        tmp = *c;
-        *c = (*c)->next;
-        ft_lstadd_back(c, tmp);
-        ra_rb_printer(mod, flag);
-        tmp->next = NULL;
-    }
-    if (mod == 3)
+        tmp = (*a)->next;
+        (*a)->next = NULL;
+        ft_lstadd_back(&tmp, *a);
+        *a = tmp;
+        if (print == 1)
+            write(1, "ra\n", 3);
+}
+
+void    ft_rb(t_stack **b, int print)
+{
+    t_stack *tmp;
+    
+    if ((*b)->next == NULL)
+            return ;
+        tmp = (*b)->next;
+        (*b)->next = NULL;
+        ft_lstadd_back(&tmp, *b);
+        *b = tmp;
+        if (print == 1)
+            write(1, "rb\n", 3);
+}
+
+void    rotate_rr(t_stack **a, t_stack **b)
+{
+    ft_ra(a, 0);
+    ft_rb(b, 0);
+    write(1, "rr\n", 3);
+}
+
+void    reverse_rra(t_stack **a, int print)
+{
+    t_stack *tmp;
+    t_stack *new;
+
+    if ((*a)->next != NULL)
     {
-        ra_rb(a, b, 1, 1);
-        ra_rb(a, b, 2, 1);
-        write(1, "rr\n", 3);
+        tmp = ft_lstlast(*a);
+        new = ft_lstnew(tmp->content);
+        tmp = *a;
+        while (tmp->next)
+        {
+            if (!tmp->next->next)
+            {
+                free(tmp->next);
+                tmp->next = NULL;
+            }
+            else
+                tmp = tmp->next;
+        }
+        ft_lstadd_back(&new, *a);
+        *a = new;
+        if (print == 1)
+            write(1, "rra\n", 4);
     }
 }
-/*
-void    rra_rrb(t_stack **a,t_stack **b,int mod,int flag)
-{
-    t_stack *tmp;
-    t_stack **c;
-    
-    if (mod == 1)
-        c = a;
-    else if (mod == 2)
-        c = b;
-    if (mod < 3)
-    {
-        tmp = ft_lstlast(*c);
-        ft_lstadd_front(c, tmp);
-        tmp = find_forelast(c);       
-        tmp->next = NULL;
-    }
-    if (mod == 3)
-    {
-        rra_rrb(a, b, 1, 1);
-        rra_rrb(a, b, 2, 1);
-        write(1, "rrr\n", 3);
-    }
-}*/
 
-void rra_rrb(t_stack **a, t_stack **b, int mod, int flag)
+void    reverse_rrb(t_stack **b, int print)
 {
     t_stack *tmp;
-    t_stack **c;
-    
-    if (mod == 1)
-        c = a;
-    else if (mod == 2)
-        c = b;
-    if (mod < 3 && *c != NULL) 
-    { // check if stack is not empty
-        
-        tmp = *c;
-        while (tmp->next != NULL && tmp->next->next != NULL) 
-        {
-            tmp = tmp->next;
-        }
-        if (tmp->next != NULL) 
-        { // check if there is more than one element in the stack
-            tmp->next->next = *c;
-            *c = tmp->next;
-            tmp->next = NULL;
-            rra_rrb_printer(mod, flag);
-        }
-    }
-    if (mod == 3)
+    t_stack *new;
+
+    if ((*b)->next != NULL)
     {
-        
-        if (mod == 3 && b == NULL)
+        tmp = ft_lstlast(*b);
+        new = ft_lstnew(tmp->content);
+        tmp = *b;
+        while (tmp->next)
         {
-            rra_rrb(a, b, 1, 0);
-            rra_rrb_printer(1, 0);  
+            if (!tmp->next->next)
+            {
+                free(tmp->next);
+                tmp->next = NULL;
+            }
+            else
+                tmp = tmp->next;
         }
-        else if (mod == 3 && a == NULL)
-        {
-            rra_rrb(a, b, 2, 0);
-            rra_rrb_printer(2, 0);  
-            
-        }
-        rra_rrb(a, b, 1, 1);
-        rra_rrb(a, b, 2, 1);
-        write(1, "rrr\n", 4);
+        ft_lstadd_back(&new, *b);
+        *b = new;
+        if (print == 1)
+            write(1, "rrb\n", 4);
     }
+}
+
+void    reverse_rrr(t_stack **a, t_stack **b)
+{
+    reverse_rra(a, 0);
+    reverse_rrb(b, 0);
+    write(1, "rrr\n", 4);
 }

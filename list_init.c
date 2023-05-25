@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:51:40 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/20 17:51:40 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/25 16:08:14 by jlaisney          #+#    #+#             */
+/*   Updated: 2023/05/25 16:08:14 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "pushswap.h"
 

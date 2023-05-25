@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 18:34:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/20 18:34:09 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/25 16:08:37 by jlaisney          #+#    #+#             */
+/*   Updated: 2023/05/25 16:08:37 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int main(int ac, char **av)
 	if (stacklen == 2)
 	{
 		if (a->index > a->next->index)
-			sa_sb(&a, &b, 1, 1);
+			ft_sa(&a, 1);
 	}
 	else if (stacklen == 3)
 		sort_three(&a);

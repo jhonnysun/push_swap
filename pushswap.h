@@ -33,17 +33,23 @@ static int	check_edge(char **av, int len);
 int main(int ac, char **av);
 
 //ops_rot.c
-t_stack *find_forelast(t_stack **stack);
-static void	ft_lstadd_front(t_stack **lst, t_stack *new);
-static void ra_rb_printer(int mod, int flag);
-static void rra_rrb_printer(int mod, int flag);
-void    ra_rb(t_stack **a, t_stack **b, int mod, int flag);
-void rra_rrb(t_stack **a, t_stack **b, int mod, int flag);
+//t_stack *find_forelast(t_stack **stack);
+t_stack	*ft_lstlast(t_stack *stack);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void    ft_ra(t_stack **a, int print);
+void    ft_rb(t_stack **b, int print);
+void    rotate_rr(t_stack **a, t_stack **b);
+void    reverse_rra(t_stack **a, int print);
+void    reverse_rrb(t_stack **b, int print);
+void    reverse_rrr(t_stack **a, t_stack **b);
 
 //ops
-static void sa_sb_printer(int mod, int flag);
-void    sa_sb(t_stack **a, t_stack **b, int mod, int flag);
-void    pa_pb(t_stack **src, t_stack **dest, int mod);
+void    ft_sa(t_stack **a, int print);
+void    ft_sb(t_stack **b, int print);
+void    ft_ss(t_stack **a, t_stack **b, int print);
+void    pb_pa(t_stack **src, t_stack **dest, int mod);
+
+
 
 //list_init.c
 t_stack	*ft_lstnew(int content);
