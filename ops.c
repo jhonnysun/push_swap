@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:30:22 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 15:57:24 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:30:26 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 void    ft_sa(t_stack **a, int print)
 {
-      t_stack *tmp;
+    t_stack *tmp;
       
-      if (*a && (*a)->next != NULL)
+    if (*a && (*a)->next != NULL)
     {
         printf("inside\n");
         
         tmp = (*a)->next;
         (*a)->next = tmp->next;
         tmp->next = *a;
+        *a = tmp;
         if (print == 1)
             write(1, "sa\n", 3);
     }
+    print_list(*a);
 }
 
 void    ft_sb(t_stack **b, int print)
@@ -39,6 +41,7 @@ void    ft_sb(t_stack **b, int print)
         tmp = (*b)->next;
         (*b)->next = tmp->next;
         tmp->next = *b;
+        *b = tmp;
         if (print == 1)
             write(1, "sb\n", 3);
     }

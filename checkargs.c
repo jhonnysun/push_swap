@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:30:27 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 18:30:32 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:08:15 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int not_sorted(char **av, int size)
         i++;
         j = size - 1;
     }
-	write(1, "is_sorted\n", 11);
     return (1);
 }
 

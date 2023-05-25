@@ -10,7 +10,10 @@
 # include <stdio.h>
 //# include "libft/libft.h"
 
-//maybe add unsigned int : chunk
+# ifndef VERBOSE
+#define VERBOSE 0
+# endif
+
 typedef struct s_stack
 {
     int             content;

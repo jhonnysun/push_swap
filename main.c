@@ -46,7 +46,7 @@ int main(int ac, char **av)
 	if (check_edge(av, stacklen))
 		return (1);
 	tosort = create(ac, av);
-	print_array(tosort, ac);
+	//print_array(tosort, ac);
 	
     a = fill_a(tosort, stacklen); 
     sorted = to_sort(tosort, ac);
@@ -55,8 +55,8 @@ int main(int ac, char **av)
 
 	//pa_pb(&a, &b, 2);
 	//pa_pb(&a, &b, 2);
-    printf("hallo hier ist a\n");
-	print_list(a);
+    //printf("hallo hier ist a\n");
+	//print_list(a);
 	//chuncksize = set_chuncksize(stacklen);
 	if (stacklen == 2)
 	{
@@ -71,9 +71,11 @@ int main(int ac, char **av)
 		sort_five(&a, &b);
 	else
 		radix_sort(a, b, stacklen);
+    //printf("hallo hier ist a\n");
+	//print_list(a);
+    //printf("hallo hier ist b\n");
     //print_list(b);
-    printf("hallo hier ist a\n");
-	print_list(a);
+
 	if (a)
 	{
 		while (a)
@@ -87,9 +89,9 @@ int main(int ac, char **av)
 	{
 		while (b)
 		{
-			tmp = a->next;
+			tmp = b->next;
 			free(a);
-			a = tmp;
+			b = tmp;
 		}	
 	}	
 	if (stacklen)
