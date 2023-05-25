@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 23:53:19 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:01:57 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,13 +128,12 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 
     i = 1;
     max = 0;
-    print_list(*a);
-    exit(1);
+    //print_list(*a);
     while (*a)
     {
         max += set_chuncksize(stacklen);
-	    printf("1max = %i\n", max);
-        while (i <= max && i < stacklen)
+	    //printf("1max = %i\n", max);
+        while (i <= max && *a)
         {
 	        //printf("2222222\n");
             if (*a == NULL)
@@ -151,7 +150,6 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
                 
             }   
         }
-        *a = (*a)->next;   
     }
-    push_back(a, b, i, max);
+    push_back(a, b, i - 1, max);
 }
