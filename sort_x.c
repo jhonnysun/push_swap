@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 16:03:31 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:34:32 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void    sort_three(t_stack **stack)
 void    sort_four(t_stack **a, t_stack **b)
 {
     push_min(a, b);
+	pb_pa(a, b, 2);
     sort_three(a);
     pb_pa(a, b, 2);
 }
@@ -67,7 +68,10 @@ void    sort_four(t_stack **a, t_stack **b)
 void    sort_five(t_stack **a, t_stack **b)
 {
     push_min(a, b);
+	pb_pa(a, b, 2); 
     push_min(a, b);
+	pb_pa(a, b, 2);
+
     sort_three(a);
     pb_pa(a, b, 2);
 }

@@ -46,10 +46,12 @@ int main(int ac, char **av)
 		return (1);
 	tosort = create(ac, av);
 	print_array(tosort, ac);
-    a = fill_a(tosort, stacklen); 
 	
-    //sorted = to_sort(tosort, ac);
-    //set_index(&a, sorted, stacklen);
+    a = fill_a(tosort, stacklen); 
+    sorted = to_sort(tosort, ac);
+
+    set_index(&a, sorted, stacklen);
+
 	//pa_pb(&a, &b, 2);
 	//pa_pb(&a, &b, 2);
     printf("hallo hier ist a\n");
