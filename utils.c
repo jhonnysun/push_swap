@@ -48,6 +48,7 @@ void	push_min_sub(t_stack **a, t_stack **b, int pos)
 
 	node_pos = stacksize - pos;
 	stacksize = ft_lstsize(*a);
+	printf("position is = %i\n", pos);
 	if (pos != 0)
 	{
 		if (node_pos > (stacksize / 2))
@@ -68,6 +69,7 @@ void	push_min_sub(t_stack **a, t_stack **b, int pos)
 			}
 		}
 	}
+	printf("content of head a = %i\n", (*a)->content);
 }
 
 void    push_min(t_stack **a, t_stack **b)
