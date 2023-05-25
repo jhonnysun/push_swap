@@ -35,6 +35,7 @@ int main(int ac, char **av)
     t_stack *a;
 	t_stack *b;
 	int	chuncksize;
+	t_stack *tmp;
 	
     //a = malloc(sizeof(t_stack));
 	//b->next = NULL;
@@ -74,9 +75,23 @@ int main(int ac, char **av)
     printf("hallo hier ist a\n");
 	print_list(a);
 	if (a)
-		free(a);
+	{
+		while (a)
+		{
+			tmp = a->next;
+			free(a);
+			a = tmp;
+		}
+	}
 	if (b)
-		free(b);
+	{
+		while (b)
+		{
+			tmp = a->next;
+			free(a);
+			a = tmp;
+		}	
+	}	
 	if (stacklen)
 		free(sorted);
     return (0);
