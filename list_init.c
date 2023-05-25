@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "pushswap.h"
 
 t_stack	*ft_lstnew(int content)
@@ -73,7 +71,6 @@ t_stack *fill_a(int *array, int len)
 	printf("LEN = %i\n", len);
 	tmp = ft_lstnew(array[i++]);
 	ft_lstadd_back(&rtn, tmp);	
-	printf("ERROR\n");
     while (i < len)
     {
 		printf("i = %i\n", i);

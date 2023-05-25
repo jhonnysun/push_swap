@@ -6,24 +6,11 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:09:24 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/24 23:19:02 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:32:00 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-/*void    ll_print_list(t_stack *a)
-{
-    t_stack *tmp;
-
-    tmp = a;
-    while (tmp)
-    {
-        ft_putnbr_fd(tmp->content, 1);
-        write(1, "\n", 1);
-        tmp = tmp->next;    
-    } 
-}*/
 
 void    print_list(t_stack *list)
 {

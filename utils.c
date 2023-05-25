@@ -78,7 +78,7 @@ void    push_min(t_stack **a, t_stack **b)
     int        smallest;
     int    pos;
 
-    pos = 0;
+    pos = 1;
     tmp = *a;
     smallest = tmp->content; 
     while (tmp->next)

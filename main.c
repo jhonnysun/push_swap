@@ -17,7 +17,7 @@ static int	check_edge(char **av, int len)
 {
 	 if ((len + 1) <= 2 || has_dup_or_char(av, len))
 	{
-		write(1, "Error\n", 6);
+		write(1, "edgeError\n", 6);
 		return (1);
 	}
 	if (not_sorted(av, (len)))
