@@ -17,14 +17,12 @@ static int	check_edge(char **av, int len)
 {
 	 if ((len + 1) <= 2 || has_dup_or_char(av, len))
 	{
-		write(1, "edgeError\n", 6);
 		return (1);
 	}
 	if (not_sorted(av, (len)))
 	{
-		return (0);
+		return (1);
 	}
-	write(1, "\n", 2);
 	return (0);
 }
 int main(int ac, char **av)

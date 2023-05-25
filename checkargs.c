@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:30:27 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 20:08:15 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 21:03:30 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int not_sorted(char **av, int size)
         return (1);
     while (i < size)
     {
+        j = size;
         while(j > i)
         {
             if (ft_atoi(av[i]) > ft_atoi(av[j]))
@@ -33,7 +34,6 @@ int not_sorted(char **av, int size)
             j--;
         }
         i++;
-        j = size - 1;
     }
     return (1);
 }

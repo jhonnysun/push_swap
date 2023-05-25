@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 20:06:14 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 21:41:11 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    sort_three(t_stack **stack)
     {
         if (VERBOSE)
             printf("i in sort_3 = %i\n", i);
-        n[i] = tmp->index;
+        n[i] = tmp->content;
         tmp = tmp->next;
         i++;
     }
@@ -63,8 +63,9 @@ void    sort_four(t_stack **a, t_stack **b)
     push_min(a, b);
 	pb_pa(a, b, 2);
     sort_three(a);
-	pb_pa(a, b, 2);
-    if ((*b)->index > (*b)->next->index)
+	pb_pa(b, a, 1);
+    //printf("head b = %i\nsecond b = %i\n", (*b)->index);
+    /*if ((*b)->index > (*b)->next->index)
     {
     	pb_pa(b, a, 1);
     	pb_pa(b, a, 1);
@@ -75,7 +76,7 @@ void    sort_four(t_stack **a, t_stack **b)
         ft_sb(b,1);
      	pb_pa(b, a, 1);
     	pb_pa(b, a, 1);       
-    }
+    }*/
 }
 
 void    sort_five(t_stack **a, t_stack **b)

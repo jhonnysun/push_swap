@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:30:22 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 19:30:26 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:46:54 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void    ft_sa(t_stack **a, int print)
       
     if (*a && (*a)->next != NULL)
     {
-        printf("inside\n");
-        
         tmp = (*a)->next;
         (*a)->next = tmp->next;
         tmp->next = *a;
@@ -27,7 +25,7 @@ void    ft_sa(t_stack **a, int print)
         if (print == 1)
             write(1, "sa\n", 3);
     }
-    print_list(*a);
+    //print_list(*a);
 }
 
 void    ft_sb(t_stack **b, int print)
@@ -35,9 +33,7 @@ void    ft_sb(t_stack **b, int print)
       t_stack *tmp;
       
       if (*b && (*b)->next != NULL)
-    {
-        printf("inside\n");
-        
+    {        
         tmp = (*b)->next;
         (*b)->next = tmp->next;
         tmp->next = *b;
@@ -53,9 +49,9 @@ void    ft_ss(t_stack **a, t_stack **b, int print)
     ft_sb(b, 0);
     write(1, "ss\n", 3);
 }
+
 /* mod = 1 push to a
    mod = 2 push to b  */
-
 void    pb_pa(t_stack **src, t_stack **dest, int mod)
 {
     t_stack *tmp;
