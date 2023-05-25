@@ -52,40 +52,42 @@ void	push_min_sub(t_stack **a, t_stack **b, int pos)
 	{
 		if (node_pos > (stacksize / 2))
 		{
-			while (pos <= stacksize)
+			while (pos > 0)
 			{
 				reverse_rra(a, 1);
 
-				pos++;
+				pos--;
 			}
 		}
 		else
 		{	
-			while (pos > 0)
+			while (pos < stacksize)
 			{
 				ft_ra(a, 1);
-				pos--;
+				pos++;
 			}
 		}
 	}
 }
 
-void	push_min(t_stack **a, t_stack **b)
+void    push_min(t_stack **a, t_stack **b)
 {
-	int	index;
-	t_stack	*tmp;
-	int	pos;
+    t_stack    *tmp;
+    int        smallest;
+    int    pos;
 
-	pos = 0;
-	index = (*a)->index;
-	tmp = *a;
-	while ((*a)->next)
-	{
-		if ((*a)->next->index < index)
-			index = (*a)->next->index;
-		*a = (*a)->next;
-		pos++;
-	}
-	push_min_sub(a, b, pos);
+    pos = 0;
+    tmp = *a;
+    smallest = tmp->content; 
+    while (tmp->next)
+    {
+        tmp = tmp->next;
+        if (tmp && tmp->content < smallest)
+            smallest = tmp->content;
+        else
+            break ;
+        pos++;
+    }
+    push_min_sub(a, b, pos);
 }
 
