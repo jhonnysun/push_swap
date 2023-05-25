@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:11:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 16:06:55 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:40:13 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    ft_ra(t_stack **a, int print)
 {
     t_stack *tmp;
     
-    if ((*a)->next == NULL)
+    if (!(*a) || (*a)->next == NULL)
             return ;
         tmp = (*a)->next;
         (*a)->next = NULL;
