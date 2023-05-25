@@ -56,10 +56,6 @@ int main(int ac, char **av)
 	//pa_pb(&a, &b, 2);
     printf("hallo hier ist a\n");
 	print_list(a);
-
-	
-	write(1, "\n\n", 2);
-	
 	//chuncksize = set_chuncksize(stacklen);
 	if (stacklen == 2)
 	{
@@ -77,5 +73,11 @@ int main(int ac, char **av)
     //print_list(b);
     printf("hallo hier ist a\n");
 	print_list(a);
+	if (a)
+		free(a);
+	if (b)
+		free(b);
+	if (stacklen)
+		free(sorted);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 17:34:32 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:02:17 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void    sort_three(t_stack **stack)
     int     n[3];
     int     i;
     
-    tmp = NULL;
+    tmp = *stack;
     i = 0;
     while (i <= 2)
     {
         printf("i in sort_3 = %i\n", i);
-        n[i] = (*stack)->index;
-        *stack = (*stack)->next;
+        n[i] = tmp->index;
+        tmp = tmp->next;
         i++;
     }
     //312, 213, 231 

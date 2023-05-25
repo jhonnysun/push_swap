@@ -58,7 +58,25 @@ void	ft_lstadd_back(t_stack **list, t_stack *new)
 	else
 		ft_lstlast(*list)->next = new;
 }
+t_stack *fill_a(int *array, int len)
+{
+    int     i;
+    t_stack *tmp;
+    t_stack *rtn;
 
+    i = 0;
+    rtn = NULL;
+    
+    while (i < len)
+    {
+        tmp = ft_lstnew(array[i]);
+        ft_lstadd_back(&rtn, tmp);
+        i++;
+    }
+    
+    return (rtn);
+}
+/*
 t_stack *fill_a(int *array, int len)
 {
     int     i;
@@ -84,3 +102,4 @@ t_stack *fill_a(int *array, int len)
     }
     return (rtn);
 }
+*/
