@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 18:35:48 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:06:43 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
             }
             else
             {
-                use_direction(a, max);                
+                use_direction(a, b, max);                
             }   
         }
     }

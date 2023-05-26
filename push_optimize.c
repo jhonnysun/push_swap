@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:05:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 18:13:28 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:13:06 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,39 @@ int find_direction(t_stack *stack, int max)
     return (0);
 }
 
-void    use_direction(t_stack **stack, int max)
+void    use_direction(t_stack **a,t_stack **b, int max)
 {
-    if (find_direction(*stack, max))
-        reverse_rra(stack, 1);
-    else
-        ft_ra(stack, 1);
-}
-/*
-void    check_swap(t_stack **a, t_stack **b, int searchindex)
-{
-    if ((*b)->next != NULL && (*b)->next != NULL)
+    if (find_direction(*a, max))
     {
+        if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+            check_swap(a, b);
+        reverse_rra(a, 1);
+        
+    }
+    else
+    {
+        if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+            check_swap(a, b);
+        ft_ra(a, 1);
         
     }
 }
 
+void    check_swap(t_stack **a, t_stack **b)
+{
+    if ((*a)->index > (*a)->next->index \
+    && (*b)->index < (*b)->next->index)
+    {
+        ft_ss(a, b);   
+    }
+    else if ((*a)->index > (*a)->next->index)
+    {
+        ft_sa(a, 1);
+    }
+    
+}
 
+/*
 t_stack find_push(t_stack **a, int ac)
 {
     int max_elements;
