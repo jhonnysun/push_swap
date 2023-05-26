@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 18:12:30 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:19:21 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,10 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 
     i = 1;
     max = 0;
+    max += set_chuncksize(stacklen);
     while (*a)
     {
-        max += set_chuncksize(stacklen);
+		max += max;
         while (i <= max && *a)
         {
 

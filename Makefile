@@ -2,7 +2,7 @@ NAME = push_swap
 
 VERBOSE := 0
 
-CC = gcc -fsanitize=address
+CC = gcc #-fsanitize=address
 
 FLAGS = -Wall -Wextra -Werror -g
 
