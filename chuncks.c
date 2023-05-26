@@ -21,9 +21,15 @@ int set_chuncksize(int elements)
     int chuncksize;
     chuncksize = 5;
     if (elements <= 100 && elements > 20)
-        chuncksize = elements / 5 - 2;
-    else if (elements > 100)
-        chuncksize = elements / 10 - 2;
+        chuncksize = elements / 5;
+    else if (elements > 100 && elements <= 200)
+        chuncksize = elements / 8;
+	else if (elements > 200 && elements <= 300)
+        chuncksize = elements / 10;
+	else if (elements > 300 && elements <= 400)
+        chuncksize = elements / 12;
+	else if (elements > 400 && elements <= 500)
+        chuncksize = elements / 18;
     started = chuncksize;
     return (chuncksize);
 }
