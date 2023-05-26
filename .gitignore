@@ -1,5 +1,6 @@
 push_swap
 .vscode
+objs
 
 # Compiled Object files
 *.slo
