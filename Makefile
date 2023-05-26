@@ -2,7 +2,7 @@ NAME = push_swap
 
 VERBOSE := 0
 
-CC = gcc
+CC = gcc -fsanitize=address
 
 FLAGS = -Wall -Wextra -Werror -g
 
@@ -17,6 +17,7 @@ SRC =	main.c \
 		utils2.c \
 		chuncks.c \
 		sort_x.c \
+		push_optimize.c \
 		debugprints.c
 
 OBJ_DIR := objs

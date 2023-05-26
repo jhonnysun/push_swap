@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:30:27 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 21:03:30 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:55:03 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int has_dup_or_char(char **av, int size)
 		return (1);
     while (i < size)
     {
-        while (j < size)
+        while (j <= size)
         {
             if (ft_atoi(av[i]) == ft_atoi(av[j]))
                 return (1);

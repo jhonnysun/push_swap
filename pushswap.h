@@ -113,6 +113,9 @@ void    sub_three(t_stack **stack, int *n);
 void    n_rotations(t_stack **stack, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 
+//pushoptimize.c
+int find_direction(t_stack *stack, int max);
+void    use_direction(t_stack **stack, int max);
 
 
 

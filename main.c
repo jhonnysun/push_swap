@@ -47,7 +47,6 @@ int main(int ac, char **av)
     sorted = to_sort(tosort, ac);
 
     set_index(&a, sorted, stacklen);
-
 	if (stacklen == 2)
 	{
 		if (a->index > a->next->index)
