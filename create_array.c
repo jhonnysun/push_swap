@@ -34,7 +34,6 @@ int *to_sort(int *sorted, int ac)
 {
     int i;
     int j;
-    int push;
     int tmp;
 
     i = 0;    
@@ -52,7 +51,6 @@ int *to_sort(int *sorted, int ac)
             }
             j--;
         }
-        //sorted[i] = tmp;
         i++;
         j = ac - 2;
     }
@@ -101,13 +99,9 @@ int return_index(int *array, int content, int len)
 
 void    set_index(t_stack **list, int *array, int len)
 {
-    int i;
-    int j;
     t_stack *lst_tmp;
 
     lst_tmp = *list;
-    j = 0;
-    i = 0;
     while (lst_tmp)
     {
         lst_tmp->index = return_index(array, lst_tmp->content, len);

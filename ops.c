@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:30:22 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 20:46:54 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:09:53 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void    ft_sb(t_stack **b, int print)
     }
 }
 
-void    ft_ss(t_stack **a, t_stack **b, int print)
+void    ft_ss(t_stack **a, t_stack **b)
 {
     ft_sa(a, 0);
     ft_sb(b, 0);

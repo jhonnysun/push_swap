@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 22:58:21 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:12:15 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int find_index(t_stack **stack, int index)
     tmp = *stack;
     while (tmp)
     {
-        if (tmp->index == index)
+        if (tmp->index == (size_t)index)
             return (i);
         i++;
         tmp = tmp->next;

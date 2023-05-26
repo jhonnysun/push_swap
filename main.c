@@ -13,7 +13,7 @@
 #include "pushswap.h"
 #include <string.h>
 
-static int	check_edge(char **av, int len)
+int	check_edge(char **av, int len)
 {
 	 if ((len + 1) <= 2 || has_dup_or_char(av, len))
 	{
@@ -25,6 +25,7 @@ static int	check_edge(char **av, int len)
 	}
 	return (0);
 }
+
 int main(int ac, char **av)
 {
     int     *tosort;
@@ -32,11 +33,8 @@ int main(int ac, char **av)
     int     stacklen;
     t_stack *a;
 	t_stack *b;
-	int	chuncksize;
 	t_stack *tmp;
 	
-    //a = malloc(sizeof(t_stack));
-	//b->next = NULL;
 	b = NULL;
 	a = NULL;
     stacklen = (ac - 1);
@@ -44,18 +42,12 @@ int main(int ac, char **av)
 	if (check_edge(av, stacklen))
 		return (1);
 	tosort = create(ac, av);
-	//print_array(tosort, ac);
 	
     a = fill_a(tosort, stacklen); 
     sorted = to_sort(tosort, ac);
 
     set_index(&a, sorted, stacklen);
 
-	//pa_pb(&a, &b, 2);
-	//pa_pb(&a, &b, 2);
-    //printf("hallo hier ist a\n");
-	//print_list(a);
-	//chuncksize = set_chuncksize(stacklen);
 	if (stacklen == 2)
 	{
 		if (a->index > a->next->index)
@@ -69,11 +61,8 @@ int main(int ac, char **av)
 		sort_five(&a, &b);
 	else
 		radix_sort(&a, &b, stacklen);
-    //printf("hallo hier ist a\n");
-	//print_list(a);
-    //printf("hallo hier ist b\n");
-    //print_list(b);
 
+	//TODOO do clean function
 	if (a)
 	{
 		while (a)
@@ -94,5 +83,6 @@ int main(int ac, char **av)
 	}	
 	if (stacklen)
 		free(sorted);
+
     return (0);
 }

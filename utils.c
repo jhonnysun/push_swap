@@ -76,7 +76,8 @@ void push_min_sub(t_stack **a, t_stack **b, int pos)
     int node_pos = stacksize - pos;
 
 	//printf("pos = %i\n", pos);
-
+	(void)node_pos;
+	(void)b;
     if (pos != 0)
     {
         if (pos > (stacksize / 2))

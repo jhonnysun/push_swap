@@ -53,7 +53,7 @@ char	*ft_strdup(const char *s)
 	return (rtn);
 }
 
-static int	ft_digit_len(int n)
+int	ft_digit_len(int n)
 {
 	int		sign;
 	int		i;
@@ -75,7 +75,7 @@ static int	ft_digit_len(int n)
 	return (i + sign);
 }
 
-static char	*ft_positiv_letters(int n, int count)
+char	*ft_positiv_letters(int n, int count)
 {
 	char	*letters;
 	int		i;
@@ -95,7 +95,7 @@ static char	*ft_positiv_letters(int n, int count)
 	return (letters);
 }
 
-static char	*ft_negativ_letters(int n, int count)
+char	*ft_negativ_letters(int n, int count)
 {
 	char	*letters;
 	int		i;
@@ -117,7 +117,7 @@ static char	*ft_negativ_letters(int n, int count)
 	return (letters);
 }
 
-static char	*ft_check_int(int n)
+char	*ft_check_int(int n)
 {
 	char	*letters;
 

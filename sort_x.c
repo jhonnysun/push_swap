@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 00:01:57 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:14:40 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void    sub_three(t_stack **stack, int *n)
 {
-    t_stack *tmp;
     if (VERBOSE)
         printf("sub_three\n");
     //321, 132
@@ -93,7 +92,7 @@ void    sort_five(t_stack **a, t_stack **b)
 }
 
 //mod 1 = a / mod 2 = b
-void    n_rotations(t_stack **stack,int mod, int rounds)
+void    n_rotations(t_stack **stack, int rounds)
 {
     while (rounds > 0)
     {
@@ -112,19 +111,21 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
         while (i > 0 && i >= max)
         {
             rounds = find_index(b, i);
-            n_rotations(b, 2, rounds);
+            n_rotations(b, rounds);
             pb_pa(b, a, 1);
             i--;
         }
-        max -= 5;
+		if (max <= 5)
+			max = 0;
+		else
+        	max -= 5;
     }
 }
 
 void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 {
-    int i;
-    int max;
-    int size;
+    size_t i;
+    size_t max;
 
     i = 1;
     max = 0;

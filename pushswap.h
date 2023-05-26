@@ -32,7 +32,7 @@ typedef struct s_positions
 } t_positions;
 
 //main.c
-static int	check_edge(char **av, int len);
+int	check_edge(char **av, int len);
 int main(int ac, char **av);
 
 //ops_rot.c
@@ -49,7 +49,7 @@ void    reverse_rrr(t_stack **a, t_stack **b);
 //ops
 void    ft_sa(t_stack **a, int print);
 void    ft_sb(t_stack **b, int print);
-void    ft_ss(t_stack **a, t_stack **b, int print);
+void    ft_ss(t_stack **a, t_stack **b);
 void    pb_pa(t_stack **src, t_stack **dest, int mod);
 
 
@@ -72,10 +72,10 @@ void    set_index(t_stack **list, int *array, int len);
 int	ft_atoi(const char *str);
 int	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
-static int	ft_digit_len(int n);
-static char	*ft_positiv_letters(int n, int count);
-static char	*ft_negativ_letters(int n, int count);
-static char	*ft_check_int(int n);
+int	ft_digit_len(int n);
+char	*ft_positiv_letters(int n, int count);
+char	*ft_negativ_letters(int n, int count);
+char	*ft_check_int(int n);
 char	*ft_itoa(int n);
 
 //checkargs.c
@@ -110,7 +110,7 @@ void    sort_five(t_stack **a, t_stack **b);
 void    sort_four(t_stack **a, t_stack **b);
 void    sort_three(t_stack **stack);
 void    sub_three(t_stack **stack, int *n);
-void    n_rotations(t_stack **stack,int mod, int rounds);
+void    n_rotations(t_stack **stack, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 
 
