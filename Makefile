@@ -26,6 +26,7 @@ OBJS := $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 .PHONY: all clean fclean re
 
 COLORS := 42 44 45 46 41 40
+
 COUNT := 0
 
 all: $(NAME)
@@ -40,7 +41,7 @@ $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) -c -DVERBOSE=$(VERBOSE) $(FLAGS) -Iinclude $< -o $@
 
 $(OBJ_DIR):
-	@echo "\033[34mCreating objects directory $(OBJ_DIR)/\033[0m"
+	@echo "\033[34m@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ---------->   Creating objects... (in dir $(OBJ_DIR)/)\033[0m"
 	@mkdir -p $(OBJ_DIR)
 
 clean:
