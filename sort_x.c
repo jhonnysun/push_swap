@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 19:06:43 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:16:05 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,11 @@ void    sort_five(t_stack **a, t_stack **b)
 }
 
 //mod 1 = a / mod 2 = b
-void    n_rotations(t_stack **stack, int rounds)
+void    n_rotations(t_stack **stack, t_bt rounds)
 {
     while (rounds > 0)
     {
+        if ()
         ft_rb(stack, 1);
         rounds--;
     }
@@ -89,13 +90,13 @@ void    n_rotations(t_stack **stack, int rounds)
 
 static void push_back(t_stack **a, t_stack **b, int i, int max)
 {
-    int rounds;
+    t_bt rounds;
     
     while (*b)
     {
         while (i > 0 && i >= max)
         {
-            rounds = find_index(b, i);
+            rounds = find_index(b, i, max);
             n_rotations(b, rounds);
             pb_pa(b, a, 1);
             i--;
@@ -129,6 +130,7 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
             }
             else
             {
+                
                 use_direction(a, b, max);                
             }   
         }

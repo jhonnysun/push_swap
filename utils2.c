@@ -3,30 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
+/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 14:12:15 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:19:08 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int find_index(t_stack **stack, int index)
+t_bt find_index(t_stack **stack, int index, int max)
 {
     t_stack *tmp;
+    t_bt    rtn;
     int     i;
+    int     stacklen;
 
     i = 0;
+    stacklen = ft_lstsize(*stack);
+    memset(&rtn, -1, 3);
     tmp = *stack;
     while (tmp)
     {
-        if (tmp->index == (size_t)index)
-            return (i);
+        if (tmp->index == (size_t)index && rtn.bot == -1)
+            rtn.bot = i;
+        if (tmp->index <= (size_t)max)
+            rtn.top = i;  
         i++;
         tmp = tmp->next;
     }
-    return (0);
+    rtn.top = stacklen - rtn.top;
+    if (rtn.bot < rtn.top)
+        rtn.direction = ROTATE;
+    else
+        rtn.direction = REVERSE;
+    return (rtn);
 }
 
 

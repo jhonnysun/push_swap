@@ -8,11 +8,15 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
+# include <string.h>
 //# include "libft/libft.h"
 
 # ifndef VERBOSE
 #define VERBOSE 0
 # endif
+
+#define ROTATE 0
+#define REVERSE 1
 
 typedef struct s_stack
 {
@@ -21,15 +25,12 @@ typedef struct s_stack
     struct s_stack  *next;
 } t_stack;
 
-typedef struct s_positions
+typedef struct s_bt
 {
-    int pos_first;
-    int pos_last;
-    int elem_top;
-    int elem_bot;
-    int n_rot_top;
-    int n_rot_bot;
-} t_positions;
+    int bot;
+    int top;
+    int direction;
+} t_bt;
 
 //main.c
 int	check_edge(char **av, int len);
@@ -90,7 +91,7 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
-int find_index(t_stack **stack, int index);
+t_bt find_index(t_stack **stack, int index, int max);
 
 
 
@@ -114,7 +115,7 @@ void    n_rotations(t_stack **stack, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 
 //pushoptimize.c
-int find_direction(t_stack *stack, int max);
+t_bt    find_direction(t_stack *stack, int max);
 void    use_direction(t_stack **a,t_stack **b, int max);
 
 void    check_swap(t_stack **a, t_stack **b);
