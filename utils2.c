@@ -6,34 +6,50 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 13:40:32 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 14:19:02 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int find_index(t_stack **stack, int index)
+int find_index(t_stack **stack, int index, int clinch)
 {
+	static int debug;
     t_stack *tmp;
-    int    	round;
     int     i;
 
     i = 0;
-	round = 0;
     tmp = *stack;
-    while (tmp)
+	debug++;
+	printf("DEBUG == %i\n", debug);
+    while (tmp && i < clinch)
     {
         if (tmp->index == (size_t)index)
         {
+			if (debug == 2)
+			{
+				printf("Index of nb is%li\n index = %i\n", tmp->index, index);
+				printf("we want rotate: %i roundsbecause the list is = \n", i);
+				print_list(*stack);
+				printf("\n");
+				exit(1);
+			}
+			
 			return (i);
 		}
         i++;
         tmp = tmp->next;
     }
-	printf("we want rotate %i round \n", round);
-    return (round);
+	if (debug == 2)
+	{
+		printf("Index of nb is%li\n index = %i\n", tmp->index, index);
+		printf("we want rotate: %i rounds because the list is = \n", i);
+		print_list(*stack);
+		printf("\n");
+		exit(1);
+	}
+    return (i);
 }
-
 
 /*
 int find_chunck(int chuncksize, int last_chunck, int stacklen)

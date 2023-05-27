@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 13:47:19 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 14:21:37 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,22 @@ void    sort_five(t_stack **a, t_stack **b)
 }
 
 //mod 1 = a / mod 2 = b
-void    n_rotations(t_stack **stack, int rounds)
+void    n_rotations(t_stack **a, t_stack **b, int rounds)
 {
+	int back = 0;
     while (rounds > 0)
     {
-        ft_rb(stack, 1);
+        ft_rb(b , 1);
         rounds--;
+		back++;
     }
+
+	pb_pa(b, a, 1);
+	while (back)
+	{
+		reverse_rrb(b, 1);
+		back--;
+	}
     
 }
 
@@ -91,19 +100,35 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
 {
     int rounds;
     
+	int j;
+	int rest = 0;
+	if (max > ft_lstsize(*b))
+		rest = max - ft_lstsize(*b);
+	if (rest != 0)
+	{
+		while (*b && rest)
+		{
+			rounds = find_index(b, i, rest);
+            n_rotations(a, b, rounds);
+			rest--;
+			i--;
+		}
+	}
     while (*b)
     {
-        while (i > 0 && i >= max)
+		j = set_chuncksize(1);
+        while (*b && i > 0 && i >= max)
         {
-            rounds = find_index(b, i);
-            n_rotations(b, rounds);
+			if (ft_lstsize(*b) > 1)
+				rounds = find_index(b, i, j);
+			else
+				rounds = 0;
+           	n_rotations(a, b, rounds);
             pb_pa(b, a, 1);
             i--;
+			j--;
         }
-		if (max <= 5)
-			max = 0;
-		else
-        	max -= set_chuncksize(2);
+        max -= set_chuncksize(2);
     }
 }
 

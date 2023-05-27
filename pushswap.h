@@ -91,7 +91,7 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
-int find_index(t_stack **stack, int index);
+int find_index(t_stack **stack, int index, int clinch);
 
 
 
@@ -111,7 +111,7 @@ void    sort_five(t_stack **a, t_stack **b);
 void    sort_four(t_stack **a, t_stack **b);
 void    sort_three(t_stack **stack);
 void    sub_three(t_stack **stack, int *n);
-void    n_rotations(t_stack **stack, int rounds);
+void    n_rotations(t_stack **a, t_stack **b, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 
 //pushoptimize.c
