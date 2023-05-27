@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:11:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/25 21:50:59 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:37:22 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void    reverse_rrb(t_stack **b, int print)
     {
         tmp = ft_lstlast(*b);
         new = ft_lstnew(tmp->content);
+		new->index = tmp->index;
         tmp = *b;
         while (tmp->next)
         {

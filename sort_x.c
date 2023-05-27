@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 14:21:37 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:40:27 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void    n_rotations(t_stack **a, t_stack **b, int rounds)
         rounds--;
 		back++;
     }
-
 	pb_pa(b, a, 1);
 	while (back)
 	{
@@ -108,7 +107,7 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
 	{
 		while (*b && rest)
 		{
-			rounds = find_index(b, i, rest);
+			rounds = find_index(b, rest);
             n_rotations(a, b, rounds);
 			rest--;
 			i--;
@@ -120,7 +119,7 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
         while (*b && i > 0 && i >= max)
         {
 			if (ft_lstsize(*b) > 1)
-				rounds = find_index(b, i, j);
+				rounds = find_index(b, j);
 			else
 				rounds = 0;
            	n_rotations(a, b, rounds);

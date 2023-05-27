@@ -6,13 +6,13 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 14:19:02 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:41:24 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int find_index(t_stack **stack, int index, int clinch)
+int find_index(t_stack **stack, int clinch)
 {
 	static int debug;
     t_stack *tmp;
@@ -21,12 +21,13 @@ int find_index(t_stack **stack, int index, int clinch)
     i = 0;
     tmp = *stack;
 	debug++;
-	printf("DEBUG == %i\n", debug);
+	//printf("DEBUG == %i\n", debug);
+
     while (tmp && i < clinch)
     {
         if (tmp->index == (size_t)index)
         {
-			if (debug == 2)
+			if (debug >= 100)
 			{
 				printf("Index of nb is%li\n index = %i\n", tmp->index, index);
 				printf("we want rotate: %i roundsbecause the list is = \n", i);
@@ -34,16 +35,15 @@ int find_index(t_stack **stack, int index, int clinch)
 				printf("\n");
 				exit(1);
 			}
-			
 			return (i);
 		}
         i++;
         tmp = tmp->next;
     }
-	if (debug == 2)
+	if (debug > 3)
 	{
 		printf("Index of nb is%li\n index = %i\n", tmp->index, index);
-		printf("we want rotate: %i rounds because the list is = \n", i);
+		printf("1we want rotate: %i rounds because the list is = \n", i);
 		print_list(*stack);
 		printf("\n");
 		exit(1);
