@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 22:56:59 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:12:38 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void    n_rotations(t_stack **a,t_stack **b, int rounds)
     {
         ft_rb(a, 1);
         rounds--;
+		back++;
     }
     pb_pa(b, a, 1);
     while (rotback > 0)
@@ -101,6 +102,20 @@ static void push_back(t_stack **a, t_stack **b, int i, int test)
     int chunksize;
     (void)test;
     
+	int j;
+	int rest = 0;
+	if (max > ft_lstsize(*b))
+		rest = max - ft_lstsize(*b);
+	if (rest != 0)
+	{
+		while (*b && rest)
+		{
+			rounds = find_index(b, i, rest);
+            n_rotations(a, b, rounds);
+			rest--;
+			i--;
+		}
+	}
     while (*b)
     {
         chunksize = set_chuncksize(i);
@@ -130,7 +145,7 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 		max += set_chuncksize(stacklen);
         while (i <= max && *a)
         {
-			
+			//printf("looping in a!\n");
             if (*a == NULL)
                 break ;
             if ((*a)->index <= max)
@@ -140,7 +155,6 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
             }
             else
             {
-                
                 use_direction(a, b, max);                
             }
             test++;   

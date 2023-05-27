@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:05:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 11:12:18 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:12:59 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void    use_direction(t_stack **a,t_stack **b, int max)
     t_bt *rounds;
     (void)b;
 
+	(void)b;
     rounds = find_direction(*a, max);
 
     if (rounds->direction == REVERSE)

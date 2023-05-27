@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 15:03:37 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:13:15 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int find_index_b(t_stack **stack, int index, int chunksize)
 {
+	static int debug;
     t_stack *tmp;
     int     i;
 

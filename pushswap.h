@@ -100,10 +100,14 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
+<<<<<<< HEAD
 int find_index_b(t_stack **stack, int index, int chunksize);
 int size_start_end(int chunksize, int stacklen_a);
 void    ft_free(t_stack *a, t_stack *b, int stacklen, int *sorted);
 
+=======
+int find_index(t_stack **stack, int index, int clinch);
+>>>>>>> dc016a80d912e5011ac786aeae68e4e4d5701d6d
 
 
 
@@ -123,7 +127,11 @@ void    sort_five(t_stack **a, t_stack **b);
 void    sort_four(t_stack **a, t_stack **b);
 void    sort_three(t_stack **stack);
 void    sub_three(t_stack **stack, int *n);
+<<<<<<< HEAD
 void    n_rotations(t_stack **a,t_stack **b, int rounds);
+=======
+void    n_rotations(t_stack **a, t_stack **b, int rounds);
+>>>>>>> dc016a80d912e5011ac786aeae68e4e4d5701d6d
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 */
 /*pushoptimize.c
