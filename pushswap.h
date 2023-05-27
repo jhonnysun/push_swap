@@ -91,9 +91,6 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
-int find_index(t_stack **stack, int clinch, int index);
-
-
 
 //debugprints
 //void    ll_print_list(t_stack *a);
@@ -115,39 +112,9 @@ void    n_rotations(t_stack **a, t_stack **b, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
 
 //pushoptimize.c
-int    find_direction(t_stack **a,t_stack **b, int max);
+int    	find_direction(t_stack **a,t_stack **b, int max);
 void    use_direction(t_stack **a,t_stack **b, int max);
 
 void    check_swap(t_stack **a, t_stack **b);
 
-
-
-
-
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
