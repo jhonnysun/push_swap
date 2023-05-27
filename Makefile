@@ -4,7 +4,7 @@ VERBOSE := 0
 
 CC = gcc #-fsanitize=address
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -g #-Werror 
 
 SRC =	main.c \
 		ops_rot.c \

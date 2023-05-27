@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 16:04:54 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:29:54 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,59 +79,12 @@ void    sort_five(t_stack **a, t_stack **b)
 //mod 1 = a / mod 2 = b
 void    n_rotations(t_stack **a, t_stack **b, int rounds)
 {
-	int back = 0;
-    while (rounds > 0)
-    {
-        ft_rb(b , 1);
-        rounds--;
-		back++;
-    }
-	pb_pa(b, a, 1);
-	while (back)
-	{
-		reverse_rrb(b, 1);
-		back--;
-	}
-    
+	
 }
 
 static void push_back(t_stack **a, t_stack **b, int i, int max)
 {
-    int rounds;
-    
-	int j;
-	int rest = 0;
-	if (max > ft_lstsize(*b))
-	{
-		rest = max - ft_lstsize(*b);
-		rest = set_chuncksize(1) - rest;
-	}
-	if (rest != 0)
-	{
-		while (*b && rest)
-		{
-			rounds = find_index(b, rest, i);
-            n_rotations(a, b, rounds);
-			rest--;
-			i--;
-		}
-	}
-    while (*b)
-    {
-		j = set_chuncksize(1);
-        while (*b && i > 0 && i >= max)
-        {
-			if (ft_lstsize(*b) > 1)
-				rounds = find_index(b, j, i);
-			else
-				rounds = 0;
-           	n_rotations(a, b, rounds);
-            pb_pa(b, a, 1);
-            i--;
-			j--;
-        }
-        max -= set_chuncksize(2);
-    }
+	//TODOO push back to a 
 }
 
 void    radix_sort(t_stack **a, t_stack **b, int stacklen)
@@ -139,27 +92,14 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
     size_t i;
     size_t max;
 
-    i = 1;
+    i = 0;
 	max = set_chuncksize(stacklen);
-
+	printf("chunksize = %li\n", max);
     while (*a)
     {
-		max += set_chuncksize(1);
-        while (i <= max && *a)
-        {
-			//printf("looping in a!\n");
-            if (*a == NULL)
-                break ;
-            if ((*a)->index <= max)
-            {
-                pb_pa(a, b, 2);
-                i++;
-            }
-            else
-            {
-                use_direction(a, b, max);                
-            }   
-        }
+		//TODOO make a good b stack with chunks...
     }
-    push_back(a, b, i - 1, max);
+	print_list(*b);
+	exit(1);
+    push_back(a, b, i, max);
 }

@@ -6,64 +6,20 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:05:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 13:46:36 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:30:49 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_bt find_direction(t_stack *stack, int max)
+int find_direction(t_stack **a, t_stack **b, int max)
 {
-    t_bt    rtn;
-    t_stack     *tmp;
-    int         i;
-    int         stacklen;
-
-    i = 0;
-    memset(&rtn, -1, 3);
-    tmp = stack;
-    stacklen = ft_lstsize(stack);
-    while(tmp)
-    {
-        if ((int)tmp->index <= max && rtn.bot == -1)
-            rtn.bot = i;
-        else if ((int)tmp->index <= max)
-            rtn.top = i;
-        i++;
-        tmp = tmp->next; 
-    }
-    rtn.top = stacklen - rtn.top;
-    if (rtn.bot < rtn.top)
-        rtn.direction = ROTATE;
-    else
-        rtn.direction = REVERSE;
-    return (rtn);
+	use_direction(a, b, max);
 }
 
 void    use_direction(t_stack **a,t_stack **b, int max)
 {
-    t_bt rounds;
-
-	(void)b;
-    rounds = find_direction(*a, max);
-    if (rounds.direction == REVERSE)
-    {
-        while (!((*a)->index <= (size_t)max))
-        {    
-            //if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-               // check_swap(a, b);
-            reverse_rra(a, 1);
-        }
-    }
-    else if (rounds.direction == ROTATE)
-    {
-        while ((!((*a)->index <= (size_t)max)))
-        {
-            //if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-             //   check_swap(a, b);
-            ft_ra(a, 1);
-        }
-    }
+	 //TODOO!!
 }
 
 void    check_swap(t_stack **a, t_stack **b)
@@ -78,8 +34,7 @@ void    check_swap(t_stack **a, t_stack **b)
         ft_sa(a, 1);
     }
     else if ((*b)->index < (*b)->next->index)
-        ft_sb(b, 1);
-    
+        ft_sb(b, 1); 
 }
 
 /*
