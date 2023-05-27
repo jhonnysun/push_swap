@@ -6,7 +6,7 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 21:16:05 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:56:59 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,34 +77,42 @@ void    sort_five(t_stack **a, t_stack **b)
 }
 
 //mod 1 = a / mod 2 = b
-void    n_rotations(t_stack **stack, t_bt rounds)
+void    n_rotations(t_stack **a,t_stack **b, int rounds)
 {
+    int rotback;
+
+    rotback = rounds - 1;
     while (rounds > 0)
     {
-        if ()
-        ft_rb(stack, 1);
+        ft_rb(a, 1);
         rounds--;
     }
-    
+    pb_pa(b, a, 1);
+    while (rotback > 0)
+    {
+        reverse_rrb(b, 1);
+        rotback--;
+    }
 }
 
-static void push_back(t_stack **a, t_stack **b, int i, int max)
+static void push_back(t_stack **a, t_stack **b, int i, int test)
 {
-    t_bt rounds;
+    int rounds;
+    int chunksize;
+    (void)test;
     
     while (*b)
     {
-        while (i > 0 && i >= max)
+        chunksize = set_chuncksize(i);
+        while (chunksize)
         {
-            rounds = find_index(b, i, max);
-            n_rotations(b, rounds);
-            pb_pa(b, a, 1);
-            i--;
+            rounds = find_index_b(b, i, chunksize);
+            n_rotations(a, b, rounds);
+            chunksize--;            
+            
         }
-		if (max <= 5)
-			max = 0;
-		else
-        	max -= 5;
+       
+        
     }
 }
 
@@ -112,12 +120,14 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 {
     size_t i;
     size_t max;
+    int test;
 
-    i = 1;
-	max = set_chuncksize(stacklen);
+    i = 0;
+	max = 0;
     while (*a)
     {
-		max += max;
+        test = 0;
+		max += set_chuncksize(stacklen);
         while (i <= max && *a)
         {
 			
@@ -132,8 +142,11 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
             {
                 
                 use_direction(a, b, max);                
-            }   
+            }
+            test++;   
         }
     }
-    push_back(a, b, i - 1, max);
+    printf("test = %i\n", test);
+    printf("chunk = %i\n", set_chuncksize(stacklen));
+    push_back(a, b, i, test);
 }

@@ -6,40 +6,69 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:25:11 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 21:19:08 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:03:37 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_bt find_index(t_stack **stack, int index, int max)
+int find_index_b(t_stack **stack, int index, int chunksize)
 {
     t_stack *tmp;
-    t_bt    rtn;
     int     i;
-    int     stacklen;
 
     i = 0;
-    stacklen = ft_lstsize(*stack);
-    memset(&rtn, -1, 3);
     tmp = *stack;
-    while (tmp)
+    while (tmp && i < chunksize)
     {
-        if (tmp->index == (size_t)index && rtn.bot == -1)
-            rtn.bot = i;
-        if (tmp->index <= (size_t)max)
-            rtn.top = i;  
+        if ((*stack)->index == (size_t)index)
+        {
+            printf("index = %i\n", index);
+            return (i);
+            
+        }    
         i++;
         tmp = tmp->next;
     }
-    rtn.top = stacklen - rtn.top;
-    if (rtn.bot < rtn.top)
-        rtn.direction = ROTATE;
-    else
-        rtn.direction = REVERSE;
-    return (rtn);
+    return (i);
 }
 
+void    ft_free(t_stack *a, t_stack *b, int stacklen, int *sorted)
+{
+	t_stack *tmp;
+    
+    if (a)
+	{
+		while (a)
+		{
+			tmp = a->next;
+			free(a);
+			a = tmp;
+		}
+	}
+	if (b)
+	{
+		while (b)
+		{
+			tmp = b->next;
+			free(a);
+			b = tmp;
+		}	
+	}	
+	if (stacklen)
+		free(sorted);
+}
+
+int size_start_end(int chunksize, int stacklen_a)
+{
+    int max_index;
+
+    max_index = 0;
+    if (max_index >= stacklen_a)
+        return (stacklen_a);
+    max_index += chunksize;
+    return (max_index);
+}
 
 /*
 int find_chunck(int chuncksize, int last_chunck, int stacklen)
@@ -52,3 +81,4 @@ int find_chunck(int chuncksize, int last_chunck, int stacklen)
     return (new_chunk);
 }
 */
+

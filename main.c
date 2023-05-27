@@ -33,19 +33,18 @@ int main(int ac, char **av)
     int     stacklen;
     t_stack *a;
 	t_stack *b;
-	t_stack *tmp;
 	
 	b = NULL;
 	a = NULL;
     stacklen = (ac - 1);
-	//before anything is done do the parsing here : check dup, is sorted, is not number and only 2 numbers, and max arguments allowed, quoted or not use split
 	if (check_edge(av, stacklen))
 		return (1);
 	tosort = create(ac, av);
-	
-    a = fill_a(tosort, stacklen); 
+    a = fill_a(tosort, stacklen);
+	//print_list(a);
+	//stacklen = ft_lstsize(a);
+	//printf("stacklen = %i\n", stacklen);
     sorted = to_sort(tosort, ac);
-
     set_index(&a, sorted, stacklen);
 	if (stacklen == 2)
 	{
@@ -60,28 +59,6 @@ int main(int ac, char **av)
 		sort_five(&a, &b);
 	else
 		radix_sort(&a, &b, stacklen);
-
-	//TODOO do clean function
-	if (a)
-	{
-		while (a)
-		{
-			tmp = a->next;
-			free(a);
-			a = tmp;
-		}
-	}
-	if (b)
-	{
-		while (b)
-		{
-			tmp = b->next;
-			free(a);
-			b = tmp;
-		}	
-	}	
-	if (stacklen)
-		free(sorted);
-
+	ft_free(a, b, stacklen, sorted);
     return (0);
 }

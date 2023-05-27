@@ -6,61 +6,76 @@
 /*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:05:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 21:13:37 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 11:12:18 by jlaisney         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_bt find_direction(t_stack *stack, int max)
+/*
+t_bt *find_direction(t_stack *stack, int max)
 {
-    t_bt    rtn;
+    t_bt    *rtn;
     t_stack     *tmp;
     int         i;
     int         stacklen;
 
     i = 0;
-    memset(&rtn, -1, 3);
+    rtn = malloc(sizeof(t_bt));
+    rtn->bot = -1;
+    rtn->top = -1;
+    rtn->direction = -1;
+    
     tmp = stack;
     stacklen = ft_lstsize(stack);
     while(tmp)
     {
-        if ((int)tmp->index <= max && rtn.bot == -1)
-            rtn.bot = i;
+        if ((int)tmp->index <= max && rtn->bot == -1)
+            rtn->bot = i;
         else if ((int)tmp->index <= max)
-            rtn.top = i;
+            rtn->top = i;
         i++;
         tmp = tmp->next; 
     }
-    rtn.top = stacklen - rtn.top;
-    if (rtn.bot < rtn.top)
-        rtn.direction = ROTATE;
+    rtn->top = stacklen - rtn->top;
+    if (rtn->bot < rtn->top)
+        rtn->direction = ROTATE;
     else
-        rtn.direction = REVERSE;
+        rtn->direction = REVERSE;
+    //printf("direction = %i\n", rtn->direction);
     return (rtn);
 }
+*/
 
 void    use_direction(t_stack **a,t_stack **b, int max)
 {
-    t_bt rounds;
+    t_bt *rounds;
+    (void)b;
 
     rounds = find_direction(*a, max);
-    if (rounds.direction == REVERSE)
+
+    if (rounds->direction == REVERSE)
     {
-        while (!((*a)->index <= (size_t)max))
+        while (rounds->top > 0)
         {    
-            if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-                check_swap(a, b);
+           // if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+             //   check_swap(a, b);
             reverse_rra(a, 1);
+            rounds->top -= 1;
         }
     }
-    else if (rounds.direction == ROTATE)
+    else if (rounds->direction == ROTATE)
     {
-        while ((!((*a)->index <= (size_t)max)))
+        while (rounds->bot > 0)
         {
-            if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-                check_swap(a, b);
+            //if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+              //  check_swap(a, b);
             ft_ra(a, 1);
+            rounds->bot -= 1;
+            printf("rounds = %i\n%i\n", rounds->bot, rounds->top);
+            
+           // exit(123);
+
         }
     }
 }

@@ -25,6 +25,15 @@ typedef struct s_stack
     struct s_stack  *next;
 } t_stack;
 
+typedef struct s_chunck
+{
+    int start_index;
+    int end_index;
+    int chuncksize;
+    int stacklen;
+} t_chunck;
+
+
 typedef struct s_bt
 {
     int bot;
@@ -91,7 +100,10 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
-t_bt find_index(t_stack **stack, int index, int max);
+int find_index_b(t_stack **stack, int index, int chunksize);
+int size_start_end(int chunksize, int stacklen_a);
+void    ft_free(t_stack *a, t_stack *b, int stacklen, int *sorted);
+
 
 
 
@@ -106,19 +118,32 @@ int set_chuncksize(int elements);
 t_positions top_bot(t_stack **a, int chunckindex, int max_elements);
 t_positions n_rot(t_stack **a, int chunkckindex, int max_elements);*/
 
-//sort_x.c
+/*sort_x.c
 void    sort_five(t_stack **a, t_stack **b);
 void    sort_four(t_stack **a, t_stack **b);
 void    sort_three(t_stack **stack);
 void    sub_three(t_stack **stack, int *n);
-void    n_rotations(t_stack **stack, int rounds);
+void    n_rotations(t_stack **a,t_stack **b, int rounds);
 void    radix_sort(t_stack **a, t_stack **b, int stacklen);
-
-//pushoptimize.c
-t_bt    find_direction(t_stack *stack, int max);
+*/
+/*pushoptimize.c
+int   *find_direction_a(t_stack *a, int max, int chuncksize);
 void    use_direction(t_stack **a,t_stack **b, int max);
 
 void    check_swap(t_stack **a, t_stack **b);
+*/
+//searchstuff.c
+void    radix_sort(t_stack **a, t_stack **b, int stacklen_a);
+void    n_rotations(t_stack **a,t_stack **b, int rounds);
+int push_shortest(t_stack **a, t_stack **b, int max_index, int chuncksize);
+int find_direction_a(t_stack **a, int max_index, int chuncksize);
+int find_last_a(t_stack **a, int max_index, int chuncksize);
+int find_first_a(t_stack **a, int max_index);
+void    sub_three(t_stack **stack, int *n);
+void    sort_three(t_stack **stack);
+void    sort_four(t_stack **a, t_stack **b);
+void    sort_five(t_stack **a, t_stack **b);
+
 
 
 

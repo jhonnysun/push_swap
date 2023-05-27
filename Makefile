@@ -16,8 +16,7 @@ SRC =	main.c \
 		utils.c \
 		utils2.c \
 		chuncks.c \
-		sort_x.c \
-		push_optimize.c \
+		searchstuff.c \
 		debugprints.c
 
 OBJ_DIR := objs
