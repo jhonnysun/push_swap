@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_optimize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:05:47 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 21:13:37 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 13:46:36 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ void    use_direction(t_stack **a,t_stack **b, int max)
 {
     t_bt rounds;
 
+	(void)b;
     rounds = find_direction(*a, max);
     if (rounds.direction == REVERSE)
     {
         while (!((*a)->index <= (size_t)max))
         {    
-            if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-                check_swap(a, b);
+            //if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+               // check_swap(a, b);
             reverse_rra(a, 1);
         }
     }
@@ -58,8 +59,8 @@ void    use_direction(t_stack **a,t_stack **b, int max)
     {
         while ((!((*a)->index <= (size_t)max)))
         {
-            if ( *b && (*b)->next != NULL && (*b)->next != NULL)
-                check_swap(a, b);
+            //if ( *b && (*b)->next != NULL && (*b)->next != NULL)
+             //   check_swap(a, b);
             ft_ra(a, 1);
         }
     }

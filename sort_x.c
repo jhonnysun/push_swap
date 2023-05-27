@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisney <jlaisney@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/26 21:16:05 by jlaisney         ###   ########.fr       */
+/*   Updated: 2023/05/27 13:47:19 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,10 @@ void    sort_five(t_stack **a, t_stack **b)
 }
 
 //mod 1 = a / mod 2 = b
-void    n_rotations(t_stack **stack, t_bt rounds)
+void    n_rotations(t_stack **stack, int rounds)
 {
     while (rounds > 0)
     {
-        if ()
         ft_rb(stack, 1);
         rounds--;
     }
@@ -90,13 +89,13 @@ void    n_rotations(t_stack **stack, t_bt rounds)
 
 static void push_back(t_stack **a, t_stack **b, int i, int max)
 {
-    t_bt rounds;
+    int rounds;
     
     while (*b)
     {
         while (i > 0 && i >= max)
         {
-            rounds = find_index(b, i, max);
+            rounds = find_index(b, i);
             n_rotations(b, rounds);
             pb_pa(b, a, 1);
             i--;
@@ -104,7 +103,7 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
 		if (max <= 5)
 			max = 0;
 		else
-        	max -= 5;
+        	max -= set_chuncksize(2);
     }
 }
 
@@ -115,12 +114,13 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
 
     i = 1;
 	max = set_chuncksize(stacklen);
+
     while (*a)
     {
-		max += max;
+		max += set_chuncksize(1);
         while (i <= max && *a)
         {
-			
+			//printf("looping in a!\n");
             if (*a == NULL)
                 break ;
             if ((*a)->index <= max)
@@ -130,7 +130,6 @@ void    radix_sort(t_stack **a, t_stack **b, int stacklen)
             }
             else
             {
-                
                 use_direction(a, b, max);                
             }   
         }

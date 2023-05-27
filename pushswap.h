@@ -91,7 +91,7 @@ void	push_min(t_stack **a, t_stack **b);
 void	push_min_sub(t_stack **a, t_stack **b, int pos);
 
 //utils2.c
-t_bt find_index(t_stack **stack, int index, int max);
+int find_index(t_stack **stack, int index);
 
 
 
