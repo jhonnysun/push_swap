@@ -62,6 +62,7 @@ int main(int ac, char **av)
 	else
 		radix_sort(&a, &b, stacklen);
 
+	//print_list((a));
 	//TODOO do clean function
 	if (a)
 	{

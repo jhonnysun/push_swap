@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@mail.abc>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:49:14 by jlaisney          #+#    #+#             */
-/*   Updated: 2023/05/27 15:40:27 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/05/27 16:04:54 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,15 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
 	int j;
 	int rest = 0;
 	if (max > ft_lstsize(*b))
+	{
 		rest = max - ft_lstsize(*b);
+		rest = set_chuncksize(1) - rest;
+	}
 	if (rest != 0)
 	{
 		while (*b && rest)
 		{
-			rounds = find_index(b, rest);
+			rounds = find_index(b, rest, i);
             n_rotations(a, b, rounds);
 			rest--;
 			i--;
@@ -119,7 +122,7 @@ static void push_back(t_stack **a, t_stack **b, int i, int max)
         while (*b && i > 0 && i >= max)
         {
 			if (ft_lstsize(*b) > 1)
-				rounds = find_index(b, j);
+				rounds = find_index(b, j, i);
 			else
 				rounds = 0;
            	n_rotations(a, b, rounds);
